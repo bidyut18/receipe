@@ -3,13 +3,13 @@ import Recipe from './recipe';
 import './App.css';
 
 const App = () => {
-  const APP_ID = '0a775cc4';
-  const APP_KEY = '3aa4cc144e12a9f0cc9d9f4cf739c7c3';
+  const APP_ID = 'ID';
+  const APP_KEY = 'APP_KEY';
 
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('Chicken')
+  const [query, setQuery] = useState('Mango')
 
   useEffect(() => {
     getRecipes();
