@@ -5,7 +5,6 @@ import './App.css';
 const App = () => {
   const APP_ID = process.env.REACT_APP_ID;
   const APP_KEY = process.env.REACT_APP_API_KEY;
-  console.log(APP_ID);
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
@@ -42,7 +41,7 @@ const App = () => {
       <div className='recipes'>
         {recipes.map(recipe => (
           <Recipe
-            key={recipe.recipe.label}
+            key={recipe.recipe.label + Math.random().toString()}
             title={recipe.recipe.label}
             calories={recipe.recipe.calories}
             image={recipe.recipe.image}
