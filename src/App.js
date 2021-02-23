@@ -3,24 +3,23 @@ import Recipe from './recipe';
 import './App.css';
 
 const App = () => {
-  const APP_ID = 'ID';
-  const APP_KEY = 'APP_KEY';
-
+  const APP_ID = process.env.REACT_APP_ID;
+  const APP_KEY = process.env.REACT_APP_API_KEY;
+  console.log(APP_ID);
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('Mango')
+  const [query, setQuery] = useState('Chicken')
 
   useEffect(() => {
     getRecipes();
   }, [query]);
   const getRecipes = async () => {
     const response = await fetch(
-      `https://XYZABC.../search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits);
   };
   const updatesearch = e => {
     setSearch(e.target.value);
@@ -51,7 +50,7 @@ const App = () => {
           />
         ))}
       </div>
-
+      <div id="edamam-badge" data-color="white"></div>
     </div>
   )
 }
